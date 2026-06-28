@@ -1,0 +1,43 @@
+package project__day1;
+
+public class TestEmployee {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		Managers m = new Managers(1500,800);
+		
+		
+		
+		Clerk c = new Clerk(1200, 400);
+		
+		showSalary(m);
+		showSalary(c);
+		
+		
+		
+	}
+	
+	private static void showSalary(Employee e) {
+		if (e instanceof Managers) {
+			System.out.println("Managers Salary:" + e.getSalary());
+		}
+		else {
+			System.out.println("Clerk Salary:" + e.getSalary());
+		}
+	}
+		
+
+//	private static void showSalary(Clerk c) {
+//		// TODO Auto-generated method stub
+//		System.out.println("clerk salary:" + c.getSalary());
+//	}
+//
+//	private static void showSalary(Managers m) {
+//		// TODO Auto-generated method stub
+//		System.out.println("Managers salary:" + m.getSalary());
+//	}
+	
+
+};

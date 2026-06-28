@@ -1,0 +1,13 @@
+
+public class Member {
+	private String name;
+	private book bk;
+	
+	public void status() {
+		if(bk==null) {
+			System.out.println(name + "has not issued any book");
+		}else {
+			System.out.println(name + "has issued "+ bk);
+		}
+	}
+}

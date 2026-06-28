@@ -1,0 +1,20 @@
+package project__day1;
+
+public class TestEmployee {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		Managers m = new Managers(1500,800);
+		
+		
+		Clerk c = new Clerk(1200, 400);
+		
+		
+		Employee e = m;
+		System.out.println(e.getSalary());
+		
+	}
+
+}

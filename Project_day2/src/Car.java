@@ -1,0 +1,27 @@
+
+public class Car {
+	private String model;
+	private String[] features;
+
+	public Car(String model, String...features) {
+		// TODO Auto-generated constructor stub
+		this.model=model;
+		this.features=features;
+	}
+	
+	public void specs() {
+		System.out.println("Feature of " + model);
+		for(String f: features)
+			System.out.println(f);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Car astor = new Car("MG Astor", "keyless", "ABS", "ADAS");
+		astor.specs();
+		
+
+	}
+
+}

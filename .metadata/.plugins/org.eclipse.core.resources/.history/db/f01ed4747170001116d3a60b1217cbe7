@@ -1,0 +1,34 @@
+
+public class MyDaemo extends Thread{
+	private int limit;
+
+	public MyDaemo(int limit, String name) {
+		super(name);
+		this.limit = limit;
+	}
+	
+	@Override
+	public void run() {
+		String tname = Thread.currentThread().getName();
+		for(int i=0;i<=limit; i++) {
+			System.out.println(tname + " : " + i);
+		}
+	}
+
+	public static void main(String[] args) {
+		MyDaemo d1 = new MyDaemo(50, "first");
+		MyDaemo d2 = new MyDaemo(100,"Second");
+		MyDaemo d3 = new MyDaemo(150,"third");
+		
+		
+		MyDaemo d4 = new MyDaemo(10000000, "daemo");
+		d4.setDaemo(true);
+		
+		d1.start();
+		d2.start();
+		d3.start();
+		d4.start();
+
+	}
+
+}

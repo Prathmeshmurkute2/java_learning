@@ -1,0 +1,22 @@
+
+interface Greeting{
+	void sayhello();
+}
+
+public class GreetingDemo {	
+	class GreetingInnerImpl implements Greeting{
+		@Override
+		public void sayHello() {
+			System.out.println("Greeting Inner Impl");
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		GreetingDemo  demo = new GreetingDemo();
+		Greeting g1 = demo.new GreetingInnerImpl();
+		g1.sayhello();
+		}
+
+}

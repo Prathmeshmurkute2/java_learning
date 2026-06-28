@@ -1,0 +1,28 @@
+
+public class MyThread extends Thread{
+	private int data;
+
+	public MyThread(String name) {
+		super(name);
+	}
+	
+	@Override
+	public void run() {
+		Thread ct = Thread.currentThread();
+		String tname = ct.getName();
+		for(int i=50;i<=50;i++) {
+			System.out.println(name + " : " + ++data);
+		}
+	}
+
+	public static void main(String[] args) {
+		MyThread t1 = new MyThread("First");
+		MyThread t2 = new MyThread("Second");
+		MyThread t3 = new MyThread("Thread");
+		
+		t1.start();
+		t2.start();
+		t3.start();
+	}
+
+}

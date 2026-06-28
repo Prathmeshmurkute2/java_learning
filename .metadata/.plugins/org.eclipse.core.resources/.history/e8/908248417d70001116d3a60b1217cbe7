@@ -1,0 +1,28 @@
+import java.util.concurrent.ExecutorService;
+import java.util.ConcurrentModificationException.Executors;
+
+class GoRunnable implements Runnable{
+	private final long countUntil;
+	
+	GoRunnable(long countUntil){
+		this.countUntil = countUntil;
+ 	}
+	
+	public void run() {
+		long sum = 0;
+		for(long i=1; i<countUntil;i++) {
+			sum+=1;
+		}
+		System.out.println(sum);
+	}
+}
+
+
+
+public class ExecutorDemo {
+	private static final int NTHREDS = 10;
+	
+	public static void main(String[] args) {
+		ExecutorService executor = java.util.concurrent.Executors.newFixedThreadPool(NTHREDS)
+	}
+}
