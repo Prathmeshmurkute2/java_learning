@@ -1,0 +1,40 @@
+import com.mmcoe.dao.BookDaoCollectionImpl;
+import com.mmcoe.pojo.Book;
+import com.mmcoe.service.BookNotFoundException;
+import com.mmcoe.service.BookService;
+import com.mmcoe.service.BookServiceImpl;
+import com.mmcoe.dao.BookDao;
+
+
+public class TestBookService {
+
+	public static void main(String[] args) {
+		
+		BookDao dao = new BookDaoCollectionImpl();
+		BookService service = new BookServiceImpl(dao);
+		
+		service.save(new Book(11, "The Alchemist", "Paulo Coelho", 250));
+		service.save(new Book(12, "Metamorphisis", "Frank kafka", 210));
+		service.save(new Book(13, "C programming", "Zubair Shaikh", 150));
+		
+		for(Book b : service.list())
+			System.out.println(b);
+		
+		try {
+			System.out.println(service.find(12));
+		}catch(BookNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		for(Book b:service.findByPrice(200, 300)) {
+			System.out.println(b);
+		}
+		
+		try {
+			service.delete(13);
+		}catch(BookNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
