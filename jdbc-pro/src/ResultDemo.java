@@ -1,0 +1,41 @@
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
+public class ResultDemo {
+
+	public static void main(String[] args) {
+		String sql = "select * from cust";
+		
+		try {
+		Connection conn = JdbcFactory.getConnection();
+		
+		Statement stmt = conn.createStatement();
+		
+		//Excuting DQL operation and getting result into resultSet
+		
+		ResultSet rs= stmt.executeQuery(sql);
+		
+//		while(rs.next()) {
+//			System.out.println(rs.getInt("cid") + ", " + rs.getString(2) + ", " + rs.getString(3));
+//		}
+		
+		ResultSetMetaData meta = rs.getMetaData();
+		System.out.println(meta.getColumnCount());
+		
+		while(rs.next()) {
+			for(int c=1;c<=meta.getColumnCount();c++) {
+				System.out.print(rs.getString(c) + ", ");
+			}
+			System.out.println();
+		}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}
